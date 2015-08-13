@@ -1,7 +1,7 @@
 # Gangsta
 
 * Author: [Mark Croxton](http://hallmark-design.co.uk/)
-* Author of OpenGraph.php: [Scott MacVicar](https://github.com/scottmac/opengraph/blob/master/OpenGraph.php)
+* OpenGraph.php: [Scott MacVicar](https://github.com/scottmac/opengraph/blob/master/OpenGraph.php)
 
 ## Version 1.0.0
 
@@ -35,29 +35,29 @@ This plugin allows you to fetch OpenGraph data from a url and display it in Expr
 
 ##Parameters
 
-###`url=""`
+####`url=""`
 The URL to fetch OpenGraph data from.
 
-###`prefix=""`
+####`prefix=""`
 Prefix for variables. Defaults to "og".
 
 ##Variables
 
 All metadata values found on the referenced webpage are returned as variables for use inside the `{exp:gangsta}...{/exp:gangsta}` tag pair. These variables vary per site, but will usually include:
 
-###`{og:url}`
+####`{og:url}`
 The URL of the webpage.
 
-###`{og:site_name}`
+####`{og:site_name}`
 The name of the website hosting the referenced webpage.
 
-###`{og:title}`
+####`{og:title}`
 The title of the webpage.
 
-###`{og:image}`
+####`{og:image}`
 An image associated with the webpage.
 
-###`{og:description}`
+####`{og:description}`
 An description of the webpage.
 
 Use conditonals to check for the existance of a variable if you are unsure that the referenced site provides them.
