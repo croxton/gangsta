@@ -60,6 +60,6 @@ An image associated with the webpage.
 ####`{og:description}`
 An description of the webpage.
 
-Use conditonals to check for the existance of a variable if you are unsure that the referenced site provides them.
+Use conditionals to check for the existance of a variable if you are unsure that the referenced site provides them.
 
 
