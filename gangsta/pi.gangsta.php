@@ -14,7 +14,7 @@ require_once PATH_THIRD . 'gangsta/libraries/OpenGraph.php';
 
 $plugin_info = array(
 	'pi_name'		=> 'Gangsta',
-	'pi_version'	=> '1.0',
+	'pi_version'	=> '1.0.1',
 	'pi_author'		=> 'Mark Croxton',
 	'pi_author_url'	=> 'http://hallmark-design.co.uk',
 	'pi_description'=> 'Fetch OpenGraph data from a url',
@@ -24,6 +24,17 @@ $plugin_info = array(
 class Gangsta {
 
 	public $return_data;
+    
+	private $supported_image_ext = array(
+	    'gif',
+	    'jpg',
+	    'jpeg',
+	    'png',
+	    'bmp',
+	    'tif',
+	    'tiff',
+	    'webp'
+	);
     
 	/**
 	 * Constructor
@@ -43,15 +54,38 @@ class Gangsta {
 		$graph_data = array();
 
 		// add the prefix to each key
-		foreach ($graph as $key => $value) 
+		if (is_object($graph))
 		{
-		    $graph_data[$prefix.':'.$key] = $value;
-		}
+			foreach ($graph as $key => $value) 
+			{
+				// sanitize for display in templates
+				$value_display = htmlentities($value, ENT_QUOTES, ee()->config->item('charset') ?: 'UTF-8');
+				$value_display = str_replace(array('{', '}'), array('&#123;', '&#125;'), $value_display);
 
-		// make sure the url key exists
-		if ( ! isset($graph_data[$prefix.':url']))
-		{
-			$graph_data[$prefix.':url'] = $url;
+			    $graph_data[$prefix.':'.$key] = $value_display;
+			}
+
+			// make sure the url key exists
+			if ( ! isset($graph_data[$prefix.':url']))
+			{
+				$graph_data[$prefix.':url'] = $url;
+			}
+
+			// image checks
+			if ( isset($graph->image) && ($graph_data[$prefix.':image'] == $graph->image))
+			{
+				// if we have an image, check that it has a supported extension
+				$ext = strtolower(pathinfo($graph_data[$prefix.':image'], PATHINFO_EXTENSION));
+				if ( ! in_array($ext, $this->supported_image_ext)) 
+				{
+					$graph_data[$prefix.':image'] = ''; // not supported
+				}
+			}
+			else
+			{
+				// image url doesn't match sanitized value, so to be safe we'll ignore
+				$graph_data[$prefix.':image'] = '';
+			}
 		}
 
 		// render the template

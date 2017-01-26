@@ -3,7 +3,7 @@
 * Author: [Mark Croxton](http://hallmark-design.co.uk/)
 * OpenGraph.php: [Scott MacVicar](https://github.com/scottmac/opengraph/blob/master/OpenGraph.php)
 
-## Version 1.0.0
+## Version 1.0.1
 
 This plugin allows you to fetch OpenGraph data from a url and display it in ExpressionEngine templates. Use it to create your own Facebook-style link cards.
 
@@ -11,12 +11,18 @@ This plugin allows you to fetch OpenGraph data from a url and display it in Expr
 
 ## Requirements
 
-* ExpressionEngine 2.x
+* ExpressionEngine 2 or 3
 * PHP 5.3 or later with DOM extension
 
 ## Installation
 
-* Copy the gangsta folder to ./system/expressionengine/third_party/
+#### ExpressionEngine 2.x
+
+Move the 'gangsta' folder to the `./system/expressionengine/third_party` directory.
+
+#### ExpressionEngine 3.x
+
+Move the 'gangsta' folder to the `./system/user/addons` directory.
 
 ## Example use:
 
@@ -55,7 +61,16 @@ The name of the website hosting the referenced webpage.
 The title of the webpage.
 
 ####`{og:image}`
-An image associated with the webpage.
+An image associated with the webpage. Note that only images with one of the following extensions will work:
+
+	* gif
+	* jpg
+	* jpeg
+	* png
+	* bmp
+	* tif
+	* tiff
+	* webp
 
 ####`{og:description}`
 An description of the webpage.
