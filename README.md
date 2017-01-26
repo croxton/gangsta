@@ -63,18 +63,18 @@ The title of the webpage.
 ####`{og:image}`
 An image associated with the webpage. Note that only images with one of the following extensions will work:
 
-	* gif
-	* jpg
-	* jpeg
-	* png
-	* bmp
-	* tif
-	* tiff
-	* webp
+* gif
+* jpg
+* jpeg
+* png
+* bmp
+* tif
+* tiff
+* webp
 
 ####`{og:description}`
-An description of the webpage.
+A description of the webpage.
 
-Use conditionals to check for the existance of a variable if you are unsure that the referenced site provides them.
+Use conditionals to check for the existence of a variable if you are unsure that the referenced site provides them.
 
 
