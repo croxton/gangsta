@@ -39,25 +39,25 @@ Move the 'gangsta' folder to the `./system/user/addons` directory.
 	</article>
 	{/exp:gangsta}
 
-##Parameters
+## Parameters
 
-####`url=""`
+#### `url=""`
 The URL to fetch OpenGraph data from.
 
-####`prefix=""`
+#### `prefix=""`
 Prefix for variables. Defaults to "og".
 
-##Variables
+## Variables
 
 All metadata values found on the referenced webpage are returned as variables for use inside the `{exp:gangsta}...{/exp:gangsta}` tag pair. These variables vary per site, but will usually include:
 
-####`{og:url}`
+#### `{og:url}`
 The URL of the webpage.
 
-####`{og:site_name}`
+#### `{og:site_name}`
 The name of the website hosting the referenced webpage.
 
-####`{og:title}`
+#### `{og:title}`
 The title of the webpage.
 
 ####`{og:image}`
@@ -72,7 +72,7 @@ An image associated with the webpage. Note that only images with one of the foll
 * tiff
 * webp
 
-####`{og:description}`
+#### `{og:description}`
 A description of the webpage.
 
 Use conditionals to check for the existence of a variable if you are unsure that the referenced site provides them.
