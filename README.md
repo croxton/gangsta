@@ -60,7 +60,7 @@ The name of the website hosting the referenced webpage.
 #### `{og:title}`
 The title of the webpage.
 
-####`{og:image}`
+#### `{og:image}`
 An image associated with the webpage. Note that only images with one of the following extensions will work:
 
 * gif
